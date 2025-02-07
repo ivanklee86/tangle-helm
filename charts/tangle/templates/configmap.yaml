@@ -4,7 +4,7 @@ metadata:
   name: {{ include "tangle.fullname" . }}
 data:
   tangle.yaml: |-
-    argocd:
+    argocds:
     {{- toYaml .Values.tangle.argoCDs | nindent 6 }}
     {{- if gt (len .Values.tangle.sortOrder) 0 }}
     sortOrder:

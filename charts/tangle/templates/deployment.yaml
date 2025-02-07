@@ -27,7 +27,6 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      imagePullPolicy: Always
       serviceAccountName: {{ include "tangle.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.deployment.podSecurityContext | nindent 8 }}
@@ -72,7 +71,7 @@ spec:
       volumes:
         - name: tangle-config
           configMap:
-            name: {{ include "tangle.fullname" . }}
+            name: {{ include "tangle.fullname" . }}gi
             items:
               - key: tangle.yaml
                 path: tangle.yaml
