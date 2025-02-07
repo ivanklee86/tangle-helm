@@ -3,6 +3,24 @@ entries:
   tangle:
   - apiVersion: v2
     appVersion: 0.0.2
+    created: "2025-02-07T11:58:05.815168257Z"
+    description: Tangle is a helper app that makes using multiple ArgoCDs in a hub
+      & spoke model fun and easy!.
+    digest: b8143562267fee61da860b5796389eb65583977c45a7129669d860fcd96d8fd4
+    home: https://github.com/ivanklee86/tangle
+    keywords:
+    - argocd
+    - tangle
+    name: tangle
+    sources:
+    - https://github.com/ivanklee86/tangle
+    - https://github.com/ivanklee86/tangle-charts/charts/tangle
+    type: application
+    urls:
+    - https://github.com/ivanklee86/tangle-deployments/releases/download/tangle-0.0.5/tangle-0.0.5.tgz
+    version: 0.0.5
+  - apiVersion: v2
+    appVersion: 0.0.2
     created: "2025-02-07T11:33:23.700286728Z"
     description: Tangle is a helper app that makes using multiple ArgoCDs in a hub
       & spoke model fun and easy!.
@@ -37,4 +55,4 @@ entries:
     urls:
     - https://github.com/ivanklee86/tangle-deployments/releases/download/tangle-0.0.1/tangle-0.0.1.tgz
     version: 0.0.1
-generated: "2025-02-07T11:33:23.700301044Z"
+generated: "2025-02-07T11:58:05.81518071Z"
