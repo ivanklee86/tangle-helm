@@ -1,0 +1,18 @@
+tangle:
+  argoCDs:
+    test:
+      address: "localhost:8080"
+      insecure: true
+      authTokenEnvVar: "ARGOCD_TOKEN"
+
+  sortOrder:
+    - test
+
+  tokenSecrets:
+    - name: "ARGOCD_TOKEN"
+      secret: "tangle-secret"
+      secretKey: "ARGOCD_TOKEN"
+
+ingress:
+  enabled: true
+  className: "nginx"
