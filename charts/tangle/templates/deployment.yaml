@@ -71,7 +71,7 @@ spec:
       volumes:
         - name: tangle-config
           configMap:
-            name: {{ include "tangle.fullname" . }}gi
+            name: {{ include "tangle.fullname" . }}
             items:
               - key: tangle.yaml
                 path: tangle.yaml
