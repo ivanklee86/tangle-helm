@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "tangle.fullname" . }}
+data:
+  tangle.yaml: |-
+    argocd:
+    {{- toYaml .Values.tangle.argoCDs | nindent 6 }}
+    {{- if gt (len .Values.tangle.sortOrder) 0 }}
+    sortOrder:
+    {{- range .Values.tangle.sortOrder }}
+    - {{ . }}
+    {{- end }}
+    {{- end}}

@@ -31,14 +31,12 @@ RUN pyenv install ${PYTHON_VERSION} && \
 # Install tools
 # - Tools
 RUN sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
-COPY --from=quay.io/helmpack/chart-testing /usr/local/bin/helm /usr/local/bin
-COPY --from=quay.io/helmpack/chart-testing /usr/local/bin/kubectl /usr/local/bin
-COPY --from=quay.io/helmpack/chart-testing /usr/local/bin/ct /usr/local/bin
-COPY --from=quay.io/helmpack/chart-testing /usr/bin/yamllint /usr/local/bin
-COPY --from=quay.io/helmpack/chart-testing /usr/bin/yamale /usr/local/bin
+COPY --from=bitnami/kubectl /opt/bitnami/kubectl/bin/kubectl /usr/local/bin
+COPY --from=alpine/helm /usr/bin/helm /usr/local/bin
 
 # - Golang
 RUN go install github.com/norwoodj/helm-docs/cmd/helm-docs@latest
+RUN go install github.com/yannh/kubeconform/cmd/kubeconform@latest
 
 # Modify dotfile
 RUN echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc

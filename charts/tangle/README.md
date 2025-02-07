@@ -15,41 +15,45 @@ Tangle is a helper app that makes using multiple ArgoCDs in a hub & spoke model 
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| affinity | object | `{}` |  |
 | autoscaling.enabled | bool | `false` |  |
-| autoscaling.maxReplicas | int | `100` |  |
+| autoscaling.maxReplicas | int | `3` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| deployment.affinity | object | `{}` |  |
+| deployment.livenessProbe.httpGet.path | string | `"/health"` |  |
+| deployment.livenessProbe.httpGet.port | string | `"http"` |  |
+| deployment.nodeSelector | object | `{}` |  |
+| deployment.podAnnotations | object | `{}` |  |
+| deployment.podLabels | object | `{}` |  |
+| deployment.podSecurityContext | object | `{}` |  |
+| deployment.readinessProbe.httpGet.path | string | `"/health"` |  |
+| deployment.readinessProbe.httpGet.port | string | `"http"` |  |
+| deployment.resources | object | `{}` |  |
+| deployment.securityContext | object | `{}` |  |
+| deployment.tolerations | list | `[]` |  |
+| deployment.volumeMounts | list | `[]` |  |
+| deployment.volumes | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"nginx"` |  |
-| image.tag | string | `""` |  |
+| image.repository | string | `"ghcr.io/ivanklee86/tangle"` |  |
+| image.tag | string | `"v0.0.1"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `""` |  |
 | ingress.enabled | bool | `false` |  |
 | ingress.hosts[0].host | string | `"chart-example.local"` |  |
 | ingress.hosts[0].paths[0].path | string | `"/"` |  |
-| ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
+| ingress.hosts[0].paths[0].pathType | string | `"Prefix"` |  |
 | ingress.tls | list | `[]` |  |
-| livenessProbe.httpGet.path | string | `"/"` |  |
-| livenessProbe.httpGet.port | string | `"http"` |  |
-| nameOverride | string | `""` |  |
-| nodeSelector | object | `{}` |  |
-| podAnnotations | object | `{}` |  |
-| podLabels | object | `{}` |  |
-| podSecurityContext | object | `{}` |  |
-| readinessProbe.httpGet.path | string | `"/"` |  |
-| readinessProbe.httpGet.port | string | `"http"` |  |
+| nameOverride | string | `"tangle"` |  |
 | replicaCount | int | `1` |  |
-| resources | object | `{}` |  |
-| securityContext | object | `{}` |  |
-| service.port | int | `80` |  |
+| service.port | int | `8080` |  |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.automount | bool | `true` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
-| tolerations | list | `[]` |  |
-| volumeMounts | list | `[]` |  |
-| volumes | list | `[]` |  |
+| tangle.argoCDs | object | `{}` | Configures connection to ArgoCDs. |
+| tangle.configPath | string | `"/etc/tangle"` | Path configuration file is mounted. |
+| tangle.sortOrder | list | `[]` |  |
+| tangle.tokenSecrets | list | `[]` |  |

@@ -1,0 +1,13 @@
+---
+# https://taskfile.dev
+version: '3'
+
+tasks:
+  default:
+    cmds:
+        - echo "Hello, World!"
+
+  template:default:
+    cmds:
+        - helm template charts/tangle > manifests.yaml
+        - kubeconform manifests.yaml
