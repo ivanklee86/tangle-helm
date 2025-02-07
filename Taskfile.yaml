@@ -13,7 +13,7 @@ tasks:
         - kubeconform manifests.yaml
 
   tests:
-    dir: tests
+    dir: examples
     sources:
     - "*.yaml"
     cmds:
@@ -21,3 +21,8 @@ tasks:
         cmd: helm template ../charts/tangle -f {{ .ITEM }} > manifests.{{ .ITEM  }}
       - defer: rm manifests*
       - kubeconform manifests.*
+
+  docs:
+    dir: charts/tangle
+    cmds:
+      - helm-docs
