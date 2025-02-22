@@ -35,6 +35,10 @@ tangle:
     #   secret: "tangle-secret"
     #   secretKey: "ARGOCD_TOKEN"
 
+  listWorkers: 10
+  manifestWorkers: 5
+  hardRefreshWorkers: 5
+
 
 serviceAccount:
   # Specifies whether a service account should be created
